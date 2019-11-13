@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.dragDelegate = self
         tableView.dropDelegate = self
+        tableView.dragInteractionEnabled = true
     }
 }
 
