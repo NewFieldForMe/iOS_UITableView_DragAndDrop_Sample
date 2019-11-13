@@ -17,6 +17,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         tableView.dataSource = self
+        tableView.dragDelegate = self
+        tableView.dropDelegate = self
+    }
+}
+
+extension ViewController: UITableViewDragDelegate {
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        // Todo: implementation
+        return []
+    }
+}
+
+extension ViewController: UITableViewDropDelegate {
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+        // Todo: implementation
     }
 }
 
