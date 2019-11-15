@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MobileCoreServices
 
 extension TableResourceModel {
     func dragItem(for indexPath: IndexPath) -> UIDragItem {
