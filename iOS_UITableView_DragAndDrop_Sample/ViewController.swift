@@ -25,8 +25,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDragDelegate {
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        // Todo: implementation
-        return []
+        return [resource.dragItem(for: indexPath)]
     }
 }
 
