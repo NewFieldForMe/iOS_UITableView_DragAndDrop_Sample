@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
-    let resource = TableResourceModel()
+    var resource = TableResourceModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,5 +44,9 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = resource.prefectureNames[indexPath.row]
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        resource.moveItem(at: sourceIndexPath.row, to: destinationIndexPath.row)
     }
 }
