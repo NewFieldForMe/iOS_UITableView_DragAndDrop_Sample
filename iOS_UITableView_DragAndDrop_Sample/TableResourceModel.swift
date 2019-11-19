@@ -66,8 +66,4 @@ struct TableResourceModel {
         prefectureNames.remove(at: sourceIndex)
         prefectureNames.insert(prefecture, at: destinationIndex)
     }
-
-    mutating func addItem(_ prefecture: String, at index: Int) {
-        prefectureNames.insert(prefecture, at: index)
-    }
 }
