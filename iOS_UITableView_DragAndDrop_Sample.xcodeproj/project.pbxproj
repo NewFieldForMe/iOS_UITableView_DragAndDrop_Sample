@@ -370,7 +370,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = B7ECV6NH3D;
 				INFOPLIST_FILE = iOS_UITableView_DragAndDrop_Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -379,6 +380,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yamadaryo.iOS-UITableView-DragAndDrop-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = WildcardNewfield;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -388,7 +390,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = B7ECV6NH3D;
 				INFOPLIST_FILE = iOS_UITableView_DragAndDrop_Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -397,6 +400,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yamadaryo.iOS-UITableView-DragAndDrop-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = WildcardNewfield;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
