@@ -30,8 +30,17 @@ extension ViewController: UITableViewDragDelegate {
 }
 
 extension ViewController: UITableViewDropDelegate {
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+    }
+
     func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
-        // Todo: implementation
+        guard let destinationIndexPath = coordinator.destinationIndexPath,
+        let sourceIndexPath = coordinator.items.first?.sourceIndexPath else { return }
+
+        let str = resource.removeItem(at: sourceIndexPath.row)
+        resource.addItem(str, at: destinationIndexPath.row)
+        tableView.reloadData()
     }
 }
 
@@ -44,9 +53,5 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = resource.prefectureNames[indexPath.row]
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        resource.moveItem(at: sourceIndexPath.row, to: destinationIndexPath.row)
     }
 }
