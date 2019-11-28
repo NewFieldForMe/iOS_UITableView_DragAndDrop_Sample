@@ -35,12 +35,17 @@ extension ViewController: UITableViewDropDelegate {
     }
 
     func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
-        guard let destinationIndexPath = coordinator.destinationIndexPath,
-        let sourceIndexPath = coordinator.items.first?.sourceIndexPath else { return }
+        guard let item = coordinator.items.first,
+            let destinationIndexPath = coordinator.destinationIndexPath,
+            let sourceIndexPath = item.sourceIndexPath else { return }
 
-        let str = resource.removeItem(at: sourceIndexPath.row)
-        resource.addItem(str, at: destinationIndexPath.row)
-        tableView.reloadData()
+        tableView.performBatchUpdates({ [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.resource.moveItem(sourcePath: sourceIndexPath.row, destinationPath: destinationIndexPath.row)
+            tableView.deleteRows(at: [sourceIndexPath], with: .automatic)
+            tableView.insertRows(at: [destinationIndexPath], with: .automatic)
+            }, completion: nil)
+        coordinator.drop(item.dragItem, toRowAt: destinationIndexPath)
     }
 }
 

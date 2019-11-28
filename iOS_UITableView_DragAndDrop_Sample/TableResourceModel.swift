@@ -59,11 +59,8 @@ struct TableResourceModel {
         "沖縄県"
     ]
 
-    mutating func removeItem(at index: Int) -> String {
-        return prefectureNames.remove(at: index)
-    }
-
-    mutating func addItem(_ prefecture: String, at index: Int) {
-        prefectureNames.insert(prefecture, at: index)
+    mutating func moveItem(sourcePath: Int, destinationPath: Int) {
+        let prefecture = prefectureNames.remove(at: sourcePath)
+        prefectureNames.insert(prefecture, at: destinationPath)
     }
 }
